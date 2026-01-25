@@ -294,7 +294,7 @@ function update(testweek=null, testday=null) {
   let [times, offset] = updateTime();
   if (testweek != null && testday != null) { 
       daysIndex = new Date().getDay();  ///getUTCDay()
-      daysIndex = Math.floor( weekProgress*7 ); console.log(daysIndex); if (daysIndex===7) { return; }
+      daysIndex = Math.floor( weekProgress*7 ); if (daysIndex===7) { return; }
       times = defaultDays[daysIndex]; 
   }
   document.getElementById("utc-time").innerHTML = times;
@@ -316,7 +316,7 @@ function update(testweek=null, testday=null) {
   }
   else if (false) {
       daysIndex = new Date().getDay();  ///getUTCDay()
-      daysIndex = Math.floor( weekProgress*7 ); console.log(daysIndex); if (daysIndex===7) { return; }
+      daysIndex = Math.floor( weekProgress*7 ); if (daysIndex===7) { return; }
       hue = weekHues[daysIndex];
       saturation = 30;
       lightness = 100 - Math.cos(dayProgress * Math.PI) * 22;  ///20260121
@@ -324,7 +324,7 @@ function update(testweek=null, testday=null) {
   }
   else if (true) {
       daysIndex = new Date().getDay();  ///getUTCDay()
-      daysIndex = Math.floor( weekProgress*7 ); console.log(daysIndex); if (daysIndex===7) { return; }
+      daysIndex = Math.floor( weekProgress*7 ); if (daysIndex===7) { return; }
       hex = weekHexs[daysIndex];
       const [h,s,l] = hexToHSL(hex);
       hue = h;
@@ -336,8 +336,9 @@ function update(testweek=null, testday=null) {
   bg = `hsla(${hue}, ${saturation}%, ${lightness}%, 1.0)`;   /* 色相  鮮豔度  亮度 */  ///20260120
   ct = `hsl(${hue}, ${0}%, ${Math.floor( (1-dayProgress) *100 )}%)`;  ///黑色
   
-  console.log(dayProgress);
-  console.log(ct);
+  ///console.log(daysIndex);
+  ///console.log(dayProgress);
+  ///console.log(ct);
 
 
   document.getElementById("color-bg").value = bg;
@@ -494,7 +495,6 @@ document.getElementById('color-bg').addEventListener('input', function () {
   
 </body>
 </html>
-
 
 
 
