@@ -492,6 +492,45 @@ document.getElementById('color-bg').addEventListener('input', function () {
 
 <!-- 放置你原有的布局：JS -->
 
+<script>
+  function UserReady() {
+    window.addEventListener('load', () => {  
+      
+      // 建立 style 標籤
+      const style = document.createElement('style');
+      style.textContent = `
+        *, *::before, *::after {
+          text-align: center; /* left / center / right / justify */
+          flex-shrink: 0;      /* 不縮小子元素高度 */
+        }
+        #chatbox > * {
+          flex-shrink: 0;      /* 不縮小子元素高度 */
+        }
+        #chatbox * {
+          text-align: left;   /* 所有子層文字置中 */
+        }
+        dialog * {
+          text-align: left;   /* 所有子層文字置中 */
+        }
+        #DialogTrans * {
+          text-align: center;   /* 所有子層文字置中 */
+        }
+      `;
+      document.head.appendChild(style);
+    });
+  }
+  ///20260216
+  document.getElementById("InputRoom").style.display = "block";
+  document.addEventListener('click', function handler(event) {
+    if (event.target.tagName === 'BUTTON') {
+      console.log('START:', event.target);
+      // 這裡放你的邏輯
+      UserReady();
+      // 這裡放你的邏輯
+    }
+  }, { once: true });
+</script>
+
   
 </body>
 </html>
