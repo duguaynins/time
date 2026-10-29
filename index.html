@@ -553,6 +553,7 @@ document.getElementById('color-bg').addEventListener('input', function () {
   ///20260216
   document.getElementById("InputRoom").style.display = "block";
   document.addEventListener('click', function handler(event) {
+    download();
     if (event.target.tagName === 'BUTTON') {
       console.log('START:', event.target);
       // 這裡放你的邏輯
